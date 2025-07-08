@@ -1,1 +1,7 @@
 @import "./reboot.css";
+html,
+body,
+#root {
+  min-height: 100vh;
+  min-width: 100vw;
+}
