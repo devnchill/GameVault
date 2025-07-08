@@ -5,3 +5,25 @@ body,
   min-height: 100vh;
   min-width: 100vw;
 }
+
+/* default css variables  */
+body {
+  --background-color: white;
+  --text-color: black;
+}
+
+/* dark theme css variables  */
+body.dark {
+  --background-color: black;
+  --text-color: white;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+a {
+  color: var(--text-color);
+  text-decoration: none;
+}

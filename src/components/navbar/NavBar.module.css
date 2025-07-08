@@ -1,0 +1,31 @@
+.flex_around {
+  display: flex;
+  justify-content: space-around;
+}
+
+.flex_between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar {
+  padding-inline: clamp(1rem, 4vw, 5rem);
+}
+
+.navbar a:hover {
+  border-bottom: 2px solid;
+}
+
+.ul {
+  gap: clamp(1rem, 4vw, 5rem);
+  align-items: center;
+}
+
+li {
+  list-style-type: none;
+}
+
+.react_icons {
+  font-size: clamp(1rem, 2vw, 2rem);
+  cursor: pointer;
+}
