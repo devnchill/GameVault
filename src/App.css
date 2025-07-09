@@ -1,9 +1,8 @@
 @import "./reboot.css";
+
 html,
-body,
-#root {
-  min-height: 100vh;
-  min-width: 100vw;
+body {
+  height: 100%;
 }
 
 /* default css variables  */
@@ -23,7 +22,28 @@ body {
   color: var(--text-color);
 }
 
-a {
+#root {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+nav {
+  height: 10vh;
+}
+
+main {
+  flex: 1;
+}
+
+footer {
+  height: 10vh;
+}
+
+a,
+button {
   color: var(--text-color);
   text-decoration: none;
+  background-color: var(--background-color);
 }
