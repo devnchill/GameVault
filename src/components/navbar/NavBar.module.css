@@ -30,3 +30,14 @@ li {
   font-size: clamp(1rem, 2vw, 2rem);
   cursor: pointer;
 }
+
+.nav_cart {
+  position: relative;
+}
+
+.nav_cart > span {
+  position: absolute;
+  top: 0;
+  transform: translateY(-50%);
+  color: red;
+}

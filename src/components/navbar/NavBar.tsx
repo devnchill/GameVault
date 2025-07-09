@@ -2,8 +2,9 @@ import style from "./NavBar.module.css";
 import { Link } from "react-router-dom";
 import { MdLightMode, MdDarkMode } from "react-icons/md";
 import { useEffect, useState } from "react";
+import type { INavProp } from "./NavBar.types";
 
-const NavBar = () => {
+const NavBar = ({ itemsInCart }: INavProp) => {
   const [theme, setTheme] = useState<"light" | "dark">("light");
 
   const toggleTheme = () => {
@@ -27,7 +28,9 @@ const NavBar = () => {
             <Link to="/store">Store</Link>
           </li>
           <li>
-            <Link to="/cart">Cart</Link>
+            <Link to="/cart" className={style.nav_cart}>
+              Cart<span>{itemsInCart > 0 && itemsInCart}</span>
+            </Link>
           </li>
           <li>
             <ThemeIcon className={style.react_icons} onClick={toggleTheme} />
