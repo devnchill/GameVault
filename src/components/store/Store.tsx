@@ -44,7 +44,7 @@ const Store = () => {
             id: game.id,
             name: game.name,
             image: game.background_image,
-            price: game.metacritic ?? 60,
+            price: game.metacritic ? game.metacritic + 1290 : 1060,
             quantity: 1,
           };
 

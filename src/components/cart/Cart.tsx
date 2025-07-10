@@ -1,5 +1,6 @@
 import { useOutletContext } from "react-router-dom";
 import type { CartItem } from "./Cart.types";
+import styles from "./Cart.module.css";
 
 type CartContextType = {
   cartItems: CartItem[];
@@ -11,31 +12,18 @@ const Cart = () => {
   const { cartItems, removeFromCart } = useOutletContext<CartContextType>();
 
   return (
-    <main style={{ padding: "2rem" }}>
+    <main className={styles.main}>
       <h1>Your Cart</h1>
       {cartItems.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
-        <ul style={{ listStyle: "none", padding: 0 }}>
+        <ul className={styles.list}>
           {cartItems.map((item) => (
-            <li
-              key={item.id}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "1rem",
-                borderBottom: "1px solid #ccc",
-                padding: "1rem 0",
-              }}
-            >
-              <img
-                src={item.image}
-                alt={item.name}
-                style={{ width: "60px", height: "60px", objectFit: "cover" }}
-              />
-              <div style={{ flexGrow: 1 }}>
-                <h3 style={{ margin: 0 }}>{item.name}</h3>
-                <p style={{ margin: 0 }}>
+            <li key={item.id} className={styles.item}>
+              <img src={item.image} alt={item.name} className={styles.image} />
+              <div className={styles.details}>
+                <h3 className={styles.title}>{item.name}</h3>
+                <p className={styles.price}>
                   ₹{item.price} × {item.quantity}
                 </p>
               </div>
