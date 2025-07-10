@@ -1,3 +1,3 @@
 export interface INavProp {
-  itemsInCart: number;
+  noOfItemsInCart: number;
 }

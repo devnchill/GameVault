@@ -4,7 +4,7 @@ import { MdLightMode, MdDarkMode } from "react-icons/md";
 import { useEffect, useState } from "react";
 import type { INavProp } from "./NavBar.types";
 
-const NavBar = ({ itemsInCart }: INavProp) => {
+const NavBar = ({ noOfItemsInCart }: INavProp) => {
   const [theme, setTheme] = useState<"light" | "dark">("light");
 
   const toggleTheme = () => {
@@ -29,7 +29,7 @@ const NavBar = ({ itemsInCart }: INavProp) => {
           </li>
           <li>
             <Link to="/cart" className={style.nav_cart}>
-              Cart<span>{itemsInCart > 0 && itemsInCart}</span>
+              Cart<span>{noOfItemsInCart > 0 && noOfItemsInCart}</span>
             </Link>
           </li>
           <li>

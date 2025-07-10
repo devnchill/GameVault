@@ -1,0 +1,50 @@
+.store {
+  padding: clamp(1rem, 2vw, 3rem);
+  display: flex;
+  gap: clamp(1rem, 5vw, 5rem);
+  flex-direction: column;
+  & > h1 {
+    text-align: center;
+  }
+}
+
+.game_grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(clamp(180px, 25vw, 400px), 1fr)
+  );
+  gap: clamp(1rem, 5vw, 4rem);
+}
+
+.game_card {
+  background-color: grey;
+  border-radius: clamp(0.5rem, 1vw, 1rem);
+  display: flex;
+  gap: clamp(1rem, 1vw, 2rem);
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: clamp(1rem, 2vw, 4rem);
+  & > img {
+    border-radius: clamp(0.5rem, 1vw, 1rem);
+    height: auto;
+    object-fit: cover;
+    aspect-ratio: 3/2;
+    width: 100%;
+  }
+  & > h3 {
+    text-align: center;
+  }
+}
+
+.card_actions {
+  display: flex;
+  justify-content: center;
+  gap: clamp(1rem, 1vw, 2rem);
+  button {
+    border-radius: 5px;
+  }
+}
+.price {
+  text-align: center;
+}
