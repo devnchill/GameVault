@@ -13,9 +13,9 @@ const Cart = () => {
 
   return (
     <main className={styles.main}>
-      <h1>Your Cart</h1>
+      <h1 className={styles.center_text}>Your Cart</h1>
       {cartItems.length === 0 ? (
-        <p>Your cart is empty.</p>
+        <p className={styles.center_text}>Your cart is empty.</p>
       ) : (
         <ul className={styles.list}>
           {cartItems.map((item) => (
