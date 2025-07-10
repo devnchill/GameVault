@@ -22,6 +22,10 @@ export default function App() {
     });
   };
 
+  const totalNoOfItems = cartItems.reduce((accumulator, item: CartItem) => {
+    return (accumulator += item.quantity);
+  }, 0);
+
   const removeFromCart = (id: number) => {
     setCartItems((prev: CartItem[]): CartItem[] =>
       prev.filter((item) => item.id !== id),
@@ -30,7 +34,7 @@ export default function App() {
 
   return (
     <>
-      <NavBar noOfItemsInCart={cartItems.length} />
+      <NavBar noOfItemsInCart={totalNoOfItems} />
       <Outlet context={{ cartItems, addToCart, removeFromCart }} />
       <Footer />
     </>
