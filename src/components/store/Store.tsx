@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import styles from "./Store.module.css";
 import { useOutletContext } from "react-router-dom";
 import type { CartItem } from "../cart/Cart.types";
+import type { TGame } from "./Store.types";
 
 const Store = () => {
-  const [games, setGames] = useState([]);
+  const [games, setGames] = useState<TGame[]>([]);
   const { addToCart } = useOutletContext<{
     addToCart: (item: CartItem) => void;
   }>();
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const API_KEY = import.meta.env.VITE_REACT_APP_RAWG_API_KEY;
@@ -21,8 +23,17 @@ const Store = () => {
       .then((data) => {
         setGames(data.results || []);
       })
-      .catch((err) => console.error("Error fetching games:", err));
+      .catch((err) => console.error("Error fetching games:", err))
+      .finally(() => setLoading(false));
   }, []);
+
+  if (loading) {
+    return (
+      <main className={styles.store}>
+        <h1>Loading games...</h1>
+      </main>
+    );
+  }
 
   return (
     <main className={styles.store}>
@@ -33,7 +44,8 @@ const Store = () => {
             id: game.id,
             name: game.name,
             image: game.background_image,
-            price: game.metacritic ?? 60, // fallback price if RAWG doesn’t provide
+            price: game.metacritic ?? 60,
+            quantity: 1,
           };
 
           return (
